@@ -1,0 +1,25 @@
+{
+  "name": "supp-backend",
+  "version": "1.0.0",
+  "description": "Le backend de SUPP",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SUStudentDevs/SUPP-Backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SUStudentDevs/SUPP-Backend/issues"
+  },
+  "homepage": "https://github.com/SUStudentDevs/SUPP-Backend#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.13.0"
+  }
+}

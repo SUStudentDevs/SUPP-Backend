@@ -7,7 +7,11 @@
 import DB from '../DB'
 import Role from './Role'
 
-export default class User {
+
+/**
+ * User
+ */
+class User {
     constructor(data) {
         this.id = data.id
         this.username = data.username
@@ -16,7 +20,17 @@ export default class User {
         this.role_id = data.role_id
     }
 
+    /**
+     * Completfile:///home/vertmo/Documents/UPMC/SUStudentDevs/SUPP-Backend/docs/index.htmle name of the user (name and surname)
+     * @return the complete name
+     */
     complete_name() { return this.surname + ' ' + this.name; }
 
+    /**
+     * Role of the user
+     * @return the role of the user
+     */
     role() { return DB.getRoleById(this.role_id).then(data => new Role(data)) }
 }
+
+export default User;

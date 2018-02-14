@@ -1,6 +1,6 @@
 /**
  * Schema de données
- * @module schemas
+ * @module schema
  * @author Basile Pesin
  */
 import { buildSchema } from 'graphql'

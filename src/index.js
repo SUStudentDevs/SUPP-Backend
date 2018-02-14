@@ -1,10 +1,12 @@
 var express = require('express');
 var graphqlHTTP = require('express-graphql');
-var { graphql, buildSchema } = require('graphql');
-var { schema } = require('./schema');
-var { root } = require('./resolvers');
+import { graphql, buildSchema } from 'graphql';
+import schema from './schema';
+import root from './resolvers';
+import DB from './DB';
 
 var app = express();
+DB.connect();
 app.use('/graphql', graphqlHTTP({
     schema: schema,
     rootValue: root,

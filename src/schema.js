@@ -3,10 +3,25 @@
  * @module schemas
  * @author Basile Pesin
  */
-var { buildSchema } = require('graphql');
+import { buildSchema } from 'graphql'
 
-exports.schema = buildSchema(`
+export default buildSchema(`
     type Query {
-        hello: String
+        user(id: ID!): User
+        roles: [Role]
+    }
+
+    type User {
+        id: ID
+        username: String
+        name: String
+        surname: String
+        complete_name: String
+        role: Role
+    },
+
+    type Role {
+        id: ID
+        name: String
     }
 `);

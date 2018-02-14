@@ -40,6 +40,14 @@ class DB {
         return (new Promise((resolve, reject) => DB.connection.query('SELECT * FROM `roles` WHERE `id` =' + id,
             (error, results, fields) => resolve(results[0]) )))
     }
+
+    /**
+     * Gets a single (or none) ue by it's id
+     */
+    static getUEById(id) {
+        return (new Promise((resolve, reject) => DB.connection.query('SELECT * FROM `ues` WHERE `id` =' + id,
+            (error, results, fields) => resolve(results[0]) )))
+    }
 }
 
 DB.connection = mysql.createConnection({

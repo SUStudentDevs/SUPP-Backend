@@ -41,7 +41,7 @@ export default buildSchema(`
         credits: Int
     },
 
-    "A UE slot"
+    "A UE time slot"
     type Slot {
         id: ID
         ue: UE
@@ -50,6 +50,7 @@ export default buildSchema(`
         day: Int
         startTime: Time
         endTime: Time
+        room: String
     },
 
     "Type of a slot (course, TD)"
@@ -60,7 +61,7 @@ export default buildSchema(`
 
     "A group"
     type Group {
-        UE_id: ID
+        ue: UE
         number: ID
         size: Int
         students: [User]

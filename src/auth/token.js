@@ -24,7 +24,7 @@ export function createJWTToken(details) {
 
 export function login(username, password, res) {
     DB.getUserByUsernameAndPassword(username, password).then((data) => {
-        if(data.length<1) res.sendStatus('401');
+        if(!data || data.length<1) res.sendStatus('401');
         else res.send({
             token: createJWTToken({
                 username: data[0].username,

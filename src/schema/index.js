@@ -23,7 +23,7 @@ export default buildSchema(`
         username: String
         name: String
         surname: String
-        full_name: String
+        fullname: String
         role: Role
     },
 

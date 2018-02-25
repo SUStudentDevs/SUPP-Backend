@@ -24,7 +24,7 @@ class User {
      * Full name of the user (name and surname)
      * @return the full name
      */
-    full_name() { return this.surname + ' ' + this.name; }
+    fullname() { return this.surname + ' ' + this.name; }
 
     /**
      * Role of the user

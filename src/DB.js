@@ -81,6 +81,14 @@ DB    }
             (error, results, fields) => resolve(results) )))
     }
 
+    /**
+     * Gets user by usename and password
+     */
+    static getUserByUsernameAndPassword(username, password) {
+        return (new Promise((resolve, reject) => DB.connection.query('SELECT * FROM `users` WHERE `username` = ' + username + ' AND `password` = "' + password + '"',
+        (error, results, fields) => resolve(results) )))
+    }
+
 }
 
 DB.connection = mysql.createConnection({

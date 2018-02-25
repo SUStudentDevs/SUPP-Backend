@@ -1,10 +1,10 @@
 /**
  * User class
- * @module classes/User
+ * @module schema/classes/User
  * @author Basile Pesin
  */
 
-import DB from '../DB'
+import DB from '../../DB'
 import Role from './Role'
 
 
@@ -21,10 +21,10 @@ class User {
     }
 
     /**
-     * Completfile:///home/vertmo/Documents/UPMC/SUStudentDevs/SUPP-Backend/docs/index.htmle name of the user (name and surname)
-     * @return the complete name
+     * Full name of the user (name and surname)
+     * @return the full name
      */
-    complete_name() { return this.surname + ' ' + this.name; }
+    full_name() { return this.surname + ' ' + this.name; }
 
     /**
      * Role of the user

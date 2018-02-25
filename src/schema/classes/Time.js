@@ -1,6 +1,6 @@
 /**
  * Time class
- * @module classes/Time
+ * @module schema/classes/Time
  * @author Basile Pesin
  */
 

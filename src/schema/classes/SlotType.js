@@ -1,6 +1,6 @@
 /**
  * Slot type class
- * @module classes/Slot
+ * @module schema/classes/Slot
  * @author Basile Pesin
  */
 

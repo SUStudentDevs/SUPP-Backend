@@ -1,10 +1,10 @@
 /**
  * Group class
- * @module classes/Group
+ * @module schema/classes/Group
  * @author Basile Pesin
  */
 
-import DB from '../DB'
+import DB from '../../DB'
 import UE from './UE'
 
 /**

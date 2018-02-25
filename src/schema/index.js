@@ -13,6 +13,8 @@ export default buildSchema(`
         roles: [Role]
         "A single UE by it's id"
         ue(id: ID!): UE
+        "The current user"
+        current_user: User
     }
 
     "A User of the app"
@@ -21,7 +23,7 @@ export default buildSchema(`
         username: String
         name: String
         surname: String
-        complete_name: String
+        full_name: String
         role: Role
     },
 

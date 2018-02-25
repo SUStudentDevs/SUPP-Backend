@@ -1,10 +1,10 @@
 /**
  * User class
- * @module classes/User
+ * @module schema/classes/User
  * @author Basile Pesin
  */
 
-import DB from '../DB'
+import DB from '../../DB'
 import Role from './Role'
 
 

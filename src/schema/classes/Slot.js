@@ -1,10 +1,10 @@
 /**
  * Slot class
- * @module classes/Slot
+ * @module schema/classes/Slot
  * @author Basile Pesin
  */
 
-import DB from '../DB'
+import DB from '../../DB'
 import Group from './Group'
 import SlotType from './SlotType'
 

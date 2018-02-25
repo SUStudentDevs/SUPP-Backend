@@ -1,6 +1,6 @@
 /**
  * Role class
- * @module classes/Role
+ * @module schema/classes/Role
  * @author Basile Pesin
  */
 

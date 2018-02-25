@@ -82,7 +82,16 @@ DB    }
     }
 
     /**
-     * Gets user by usename and password
+     * Gets user by username
+     */
+    static getUserByUsername(username, password) {
+        return (new Promise((resolve, reject) => DB.connection.query('SELECT * FROM `users` WHERE `username` = ' + username,
+        (error, results, fields) => resolve(results[0]) )))
+    }
+
+
+    /**
+     * Gets user by username and password
      */
     static getUserByUsernameAndPassword(username, password) {
         return (new Promise((resolve, reject) => DB.connection.query('SELECT * FROM `users` WHERE `username` = ' + username + ' AND `password` = "' + password + '"',

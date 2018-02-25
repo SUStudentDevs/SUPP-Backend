@@ -1,21 +1,12 @@
 /**
  * Authentification
- * @module auth
+ * @module auth/token
  * @author Basile Pesin
  */
 
 import jwt from 'jsonwebtoken'
-import config from './config'
-import DB from './DB'
-
-export function verifyJWTToken(token) {
-    return new Promise((resolve, reject) => {
-        jwt.verify(token, confg.secret, (err, decodedToken) => {
-            if(err || !decodedToken) { return reject(err) }
-            resolve(decodedToken)
-        })
-    })
-}
+import config from '../config'
+import DB from '../DB'
 
 export function createJWTToken(details) {
     if(typeof details !== 'object') { details = {} }

@@ -1,10 +1,10 @@
 /**
  * UE (Course) class
- * @module classes/UE
+ * @module schema/classes/UE
  * @author Basile Pesin
  */
 
-import DB from '../DB'
+import DB from '../../DB'
 import Slot from './Slot'
 import Group from './Group'
 

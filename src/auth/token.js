@@ -8,6 +8,8 @@ import jwt from 'jsonwebtoken'
 import config from '../config'
 import DB from '../DB'
 
+import User from '../DB/User'
+
 export function createJWTToken(details) {
     if(typeof details !== 'object') { details = {} }
     if(!details.maxAge || typeof details.maxAge !== 'number') { details.maxAge = 3600 }
@@ -23,12 +25,12 @@ export function createJWTToken(details) {
 }
 
 export function login(username, password, res) {
-    DB.getUserByUsernameAndPassword(username, password).then((data) => {
+    User.findOne({where: {username: username, password:password}}).then((data) => {
         if(!data || data.length<1) res.sendStatus('401');
         else res.send({
             token: createJWTToken({
-                username: data[0].username,
-                role_id: data[0].role_id
+                username: data.username,
+                role_id: data.role_id
             })
         })
     })

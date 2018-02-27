@@ -5,6 +5,7 @@
  */
 
 import mysql from 'mysql'
+import config from './config'
 
 /**
  * Database class, contains all the static methods needeed
@@ -15,14 +16,6 @@ class DB {
      */
     static connect() {
         DB.connection.connect()
-    }
-
-    /**
-     * Gets a single (or none) user by it's id
-     */
-    static getUserById(id) {
-        return (new Promise((resolve, reject) => DB.connection.query('SELECT * FROM `users` WHERE `id` =' + id,
-            (error, results, fields) => resolve(results[0]) )))
     }
 
     /**
@@ -80,31 +73,8 @@ DB    }
         return (new Promise((resolve, reject) => DB.connection.query('SELECT * FROM `groups` WHERE `ue_id` =' + ue_id,
             (error, results, fields) => resolve(results) )))
     }
-
-    /**
-     * Gets user by username
-     */
-    static getUserByUsername(username, password) {
-        return (new Promise((resolve, reject) => DB.connection.query('SELECT * FROM `users` WHERE `username` = "' + username + '"',
-        (error, results, fields) => resolve(results[0]) )))
-    }
-
-
-    /**
-     * Gets user by username and password
-     */
-    static getUserByUsernameAndPassword(username, password) {
-        return (new Promise((resolve, reject) => DB.connection.query('SELECT * FROM `users` WHERE `username` = "' + username + '" AND `password` = "' + password + '"',
-        (error, results, fields) => resolve(results) )))
-    }
-
 }
 
-DB.connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'supp-user',
-    password: 'supp',
-    database: 'supp'
-})
+DB.connection = mysql.createConnection(config.db)
 
 export default DB;

@@ -26,7 +26,9 @@
     "express-jwt": "^5.3.0",
     "graphql": "^0.13.0",
     "jsonwebtoken": "^8.1.1",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.2",
+    "sequelize": "^4.34.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

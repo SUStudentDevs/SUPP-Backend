@@ -14,6 +14,7 @@ import root from './schema/resolvers'
 import DB from './DB'
 import config from './config'
 import { login } from './auth/token'
+import User from './DB/User'
 
 var app = express()
 DB.connect()

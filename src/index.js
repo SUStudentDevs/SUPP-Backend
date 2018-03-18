@@ -30,7 +30,7 @@ app.use(function(req, res, next) {
     next();
 })
 
-app.post('/graphql', jwt({secret: config.secret}),
+/*app.post('/graphql', jwt({secret: config.secret}),
     (req, res, next) => {
         if(!req.user.authorized) return res.sendStatus(401)
         next()
@@ -45,7 +45,15 @@ app.post('/graphql', jwt({secret: config.secret}),
             graphiql: true
         }
     })
-)
+)*/
+
+// Temporary !
+
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  graphiql: true,
+}));
 
 app.post('/login', (req, res) => {
     login(req.body.username, req.body.password, res)

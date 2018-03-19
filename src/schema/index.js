@@ -15,6 +15,11 @@ export default buildSchema(`
         ue(id: ID!): UE
         "The current user"
         current_user: User
+    },
+
+    type Mutation {
+        "Create a user"
+        newUser(username: String!, password: String!, name: String, surname: String, role: RoleInput!): User
     }
 
     "A User of the app"
@@ -23,7 +28,7 @@ export default buildSchema(`
         username: String
         name: String
         surname: String
-        full_name: String
+        fullname: String
         role: Role
     },
 
@@ -32,6 +37,10 @@ export default buildSchema(`
         id: ID
         name: String
     },
+
+    input RoleInput {
+        name: String!
+    }
 
     "A UE"
     type UE {

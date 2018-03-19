@@ -7,17 +7,19 @@
 import DB from '../../DB'
 import UE from './UE'
 
+import UEDB from '../../DB/UE'
+
 /**
  * Group of student
  */
 class Group {
     constructor(data) {
-        this.ue_id = data.ue_id
+        this.ueId = data.ueId
         this.number = data.number
         this.size = data.size
     }
 
-    ue() { return DB.getUEById(this.ue_id).then(data => new UE(data)) }
+    ue() { return UEDB.findById(this.ueId).then(ue => new UE(ue)) }
 }
 
 export default Group

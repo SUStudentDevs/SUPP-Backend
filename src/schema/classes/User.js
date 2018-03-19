@@ -4,8 +4,9 @@
  * @author Basile Pesin
  */
 
-import DB from '../../DB'
 import Role from './Role'
+
+import RoleDB from '../../DB/Role'
 
 
 /**
@@ -15,22 +16,25 @@ class User {
     constructor(data) {
         this.id = data.id
         this.username = data.username
-        this.name = data.name
-        this.surname = data.surname
-        this.role_id = data.role_id
+        if(data.name==null) this.name = ''
+        else this.name = data.name
+        if(data.surname==null) this.surname = ''
+        else this.surname = data.surname
+        console.log(data.surname)
+        this.roleId = data.roleId
     }
 
     /**
      * Full name of the user (name and surname)
      * @return the full name
      */
-    full_name() { return this.surname + ' ' + this.name; }
+    fullname() { return this.surname + ' ' + this.name; }
 
     /**
      * Role of the user
      * @return the role of the user
      */
-    role() { return DB.getRoleById(this.role_id).then(data => new Role(data)) }
+    role() { return RoleDB.findOne({where : {id: this.roleId}}).then(data => new Role(data)) }
 }
 
 export default User;

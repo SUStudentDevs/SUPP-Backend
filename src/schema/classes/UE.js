@@ -8,6 +8,9 @@ import DB from '../../DB'
 import Slot from './Slot'
 import Group from './Group'
 
+import SlotDB from '../../DB/Slot'
+import GroupDB from '../../DB/Group'
+
 /**
  * UE (Course)
  */
@@ -23,12 +26,12 @@ class UE {
     /**
      * Gets all the time slots for the UE
      */
-    slots() { return DB.getSlotsByUE(this.id).then(data => data.map(d => new Slot(d))) }
+    groups() { return GroupDB.findAll({where: {ueId: this.id}}).then(groups => groups.map(g => new Group(g))) }
 
     /**
      * Gets all the groups for this UE
      */
-    groups() { return DB.getGroupsByUE(this.id).then(data => data.map(d => new Group(d))) }
+    slots() { return SlotDB.findAll({where: {ueId: this.id}}).then(slots=> slots.map(s => new Slot(s))) }
 }
 
 export default UE;

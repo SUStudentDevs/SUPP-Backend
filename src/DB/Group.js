@@ -8,7 +8,7 @@ import Sequelize from 'sequelize'
 import sequelize from './index'
 
 export default sequelize.define('groups', {
-    ue_id: {
+    ueId: {
         type: Sequelize.INTEGER,
         primaryKey: true
     },

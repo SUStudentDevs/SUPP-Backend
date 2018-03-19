@@ -4,8 +4,9 @@
  * @author Basile Pesin
  */
 
-import DB from '../../DB'
 import Role from './Role'
+
+import RoleDB from '../../DB/Role'
 
 
 /**
@@ -17,7 +18,7 @@ class User {
         this.username = data.username
         this.name = data.name
         this.surname = data.surname
-        this.role_id = data.role_id
+        this.roleId = data.roleId
     }
 
     /**
@@ -30,7 +31,7 @@ class User {
      * Role of the user
      * @return the role of the user
      */
-    role() { return DB.getRoleById(this.role_id).then(data => new Role(data)) }
+    role() { return RoleDB.findOne({where : {id: this.roleId}}).then(data => new Role(data)) }
 }
 
 export default User;

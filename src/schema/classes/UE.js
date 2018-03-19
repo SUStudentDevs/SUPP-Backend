@@ -26,12 +26,12 @@ class UE {
     /**
      * Gets all the time slots for the UE
      */
-    groups() { return GroupDB.findAll({where: {ue_id: this.id}}).then(groups => groups.map(g => new Group(g))) }
+    groups() { return GroupDB.findAll({where: {ueId: this.id}}).then(groups => groups.map(g => new Group(g))) }
 
     /**
      * Gets all the groups for this UE
      */
-    slots() { return SlotDB.findAll({where: {ue_id: this.id}}).then(slots=> slots.map(s => new Slot(s))) }
+    slots() { return SlotDB.findAll({where: {ueId: this.id}}).then(slots=> slots.map(s => new Slot(s))) }
 }
 
 export default UE;

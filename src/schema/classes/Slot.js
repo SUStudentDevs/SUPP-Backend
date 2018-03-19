@@ -16,9 +16,9 @@ import SlotTypeDB from '../../DB/SlotType'
 class Slot {
     constructor(data) {
         this.id = data.id
-        this.ue_id = data.ue_id
-        this.type_id = data.type_id
-        this.group_number = data.group_number
+        this.ueId = data.ueId
+        this.slotTypeId = data.slotTypeId
+        this.groupNumber = data.groupNumber
         this.day = data.day
         //TODO starttime and endtime
         this.room = data.room
@@ -27,12 +27,12 @@ class Slot {
     /**
      * Gets the group for this slot
      */
-    group() { return DB.getGroup(this.ue_id, this.group_number).then(data => new Group(data)) }
+    group() { return DB.getGroup(this.ueId, this.group_number).then(data => new Group(data)) }
 
     /**
      * Gets the type of this slot
      */
-    type() { return SlotTypeDB.findOne({where: {id: this.type_id}}).then(data => new SlotType(data)) }
+    type() { return SlotTypeDB.findOne({where: {id: this.slotTypeId}}).then(data => new SlotType(data)) }
 }
 
 export default Slot

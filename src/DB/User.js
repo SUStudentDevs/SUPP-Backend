@@ -7,7 +7,9 @@
 import Sequelize from 'sequelize'
 import sequelize from './index'
 
-export default sequelize.define('users', {
+import Role from './Role'
+
+const User = sequelize.define('users', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -17,5 +19,8 @@ export default sequelize.define('users', {
     password: Sequelize.STRING,
     name: Sequelize.STRING,
     surname: Sequelize.STRING,
-    role_id: Sequelize.INTEGER
 })
+
+User.belongsTo(Role)
+
+export default User

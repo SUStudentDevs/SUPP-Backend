@@ -8,6 +8,8 @@ import DB from '../../DB'
 import Group from './Group'
 import SlotType from './SlotType'
 
+import SlotTypeDB from '../../DB/SlotType'
+
 /**
  * Time slot
  */
@@ -30,7 +32,7 @@ class Slot {
     /**
      * Gets the type of this slot
      */
-    type() { return DB.getSlotTypeById(this.type_id).then(data => new SlotType(data)) }
+    type() { return SlotTypeDB.findOne({where: {id: this.type_id}}).then(data => new SlotType(data)) }
 }
 
 export default Slot

@@ -17,10 +17,18 @@ const Slot = sequelize.define('slots', {
         primaryKey: true,
         autoIncrement: true
     },
-    day: Sequelize.DATE,
+    day: Sequelize.INTEGER,
     //starttime
     //endtime
-    room: Sequelize.STRING
+    room: Sequelize.STRING,
+    createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('NOW()')
+    },
+    updatedAt: {
+        type:Sequelize.DATE,
+        defaultValue: Sequelize.literal('NOW()')
+    }
 })
 
 Slot.belongsTo(SlotType)

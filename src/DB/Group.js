@@ -16,7 +16,15 @@ const Group = sequelize.define('groups', {
         autoIncrement: true
     },
     number: Sequelize.INTEGER,
-    size: Sequelize.INTEGER
+    size: Sequelize.INTEGER,
+    createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('NOW()')
+    },
+    updatedAt: {
+        type:Sequelize.DATE,
+        defaultValue: Sequelize.literal('NOW()')
+    }
 })
 
 Group.belongsTo(UE)

@@ -16,8 +16,11 @@ class User {
     constructor(data) {
         this.id = data.id
         this.username = data.username
-        this.name = data.name
-        this.surname = data.surname
+        if(data.name==null) this.name = ''
+        else this.name = data.name
+        if(data.surname==null) this.surname = ''
+        else this.surname = data.surname
+        console.log(data.surname)
         this.roleId = data.roleId
     }
 

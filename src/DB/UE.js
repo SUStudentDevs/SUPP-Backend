@@ -11,9 +11,17 @@ export default sequelize.define('ues', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        autoIncerment: true
+        autoIncrement: true
     },
     shortname: Sequelize.STRING,
     fullname: Sequelize.STRING,
-    credits: Sequelize.INTEGER
+    credits: Sequelize.INTEGER,
+    createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('NOW()')
+    },
+    updatedAt: {
+        type:Sequelize.DATE,
+        defaultValue: Sequelize.literal('NOW()')
+    }
 })

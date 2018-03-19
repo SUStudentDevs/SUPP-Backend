@@ -19,6 +19,14 @@ const User = sequelize.define('users', {
     password: Sequelize.STRING,
     name: Sequelize.STRING,
     surname: Sequelize.STRING,
+    createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('NOW()')
+    },
+    updatedAt: {
+        type:Sequelize.DATE,
+        defaultValue: Sequelize.literal('NOW()')
+    }
 })
 
 User.belongsTo(Role)

@@ -16,7 +16,15 @@ const Enrollment = sequelize.define('enrollments', {
         primaryKey: true,
         autoIncrement: true
     },
-    year: Sequelize.INTEGER
+    year: Sequelize.INTEGER,
+    createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('NOW()')
+    },
+    updatedAt: {
+        type:Sequelize.DATE,
+        defaultValue: Sequelize.literal('NOW()')
+    }
 })
 
 Enrollment.belongsTo(User)

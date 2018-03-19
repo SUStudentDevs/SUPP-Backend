@@ -13,5 +13,13 @@ export default sequelize.define('roles', {
         primaryKey: true,
         autoIncrement: true
     },
-    name: Sequelize.STRING
+    name: Sequelize.STRING,
+    createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('NOW()')
+    },
+    updatedAt: {
+        type:Sequelize.DATE,
+        defaultValue: Sequelize.literal('NOW()')
+    }
 })

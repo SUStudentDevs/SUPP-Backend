@@ -7,8 +7,9 @@
 import Sequelize from 'sequelize'
 import sequelize from './index'
 
-import UE from './UE'
 import SlotType from './SlotType'
+import UE from './UE'
+import Group from './Group'
 
 const Slot = sequelize.define('slots', {
     id: {
@@ -16,14 +17,14 @@ const Slot = sequelize.define('slots', {
         primaryKey: true,
         autoIncrement: true
     },
-    groupNumber: Sequelize.INTEGER,
     day: Sequelize.DATE,
     //starttime
     //endtime
     room: Sequelize.STRING
 })
 
-Slot.belongsTo(UE)
 Slot.belongsTo(SlotType)
+Slot.belongsTo(UE)
+Slot.belongsTo(Group)
 
 export default Slot

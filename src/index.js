@@ -15,8 +15,11 @@ import DB from './DB'
 import config from './config'
 import { login } from './auth/token'
 import User from './DB/User'
+import Enrollment from './DB/Enrollment'
 
 var app = express()
+
+Enrollment.sync()
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

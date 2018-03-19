@@ -39,7 +39,7 @@ export default buildSchema(`
     },
 
     input RoleInput {
-        name: String
+        name: String!
     }
 
     "A UE"

@@ -22,8 +22,8 @@ export default root = {
 
     // Mutation resolvers
     // TODO : role !
-    newUser: (args) => UserDB.findOrCreate({
+    newUser: (args) => RoleDB.findOne({where: {name: args.role.name}}).then(r => UserDB.findOrCreate({
         where:{username:args.username}, 
-        defaults:{username:args.username, password:args.password, name:args.name, surname:args.surname, roleId:1}
-    }).then(data => new User(data[0])),
+        defaults:{username:args.username, password:args.password, name:args.name, surname:args.surname, roleId:r.id}
+    }).then(data => new User(data[0]))),
 }

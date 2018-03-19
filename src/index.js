@@ -17,7 +17,6 @@ import { login } from './auth/token'
 import User from './DB/User'
 
 var app = express()
-DB.connect()
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -53,7 +52,7 @@ app.use('/graphql', graphqlHTTP({
   schema: schema,
   rootValue: root,
   graphiql: true,
-}));
+}))
 
 app.post('/login', (req, res) => {
     login(req.body.username, req.body.password, res)

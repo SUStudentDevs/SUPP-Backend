@@ -13,9 +13,6 @@ class Time {
         this.minute = minute
     }
 
-    /**
-     * Displays the time as HH:mm
-     */
     time() { this.hour + ":" + this.minute }
 }
 

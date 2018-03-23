@@ -23,14 +23,8 @@ class UE {
         this.room = data.room
     }
 
-    /**
-     * Gets all the time slots for the UE
-     */
     groups() { return GroupDB.findAll({where: {ueId: this.id}}).then(groups => groups.map(g => new Group(g))) }
 
-    /**
-     * Gets all the groups for this UE
-     */
     slots() { return SlotDB.findAll({where: {ueId: this.id}}).then(slots=> slots.map(s => new Slot(s))) }
 }
 

@@ -17,8 +17,14 @@ const User = sequelize.define('users', {
     },
     username: Sequelize.STRING,
     password: Sequelize.STRING,
-    name: Sequelize.STRING,
-    surname: Sequelize.STRING,
+    name: {
+        type: Sequelize.STRING,
+        defaultValue: ''
+    },
+    surname: {
+        type: Sequelize.STRING,
+        defaultValue: ''
+    },
     createdAt: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('NOW()')

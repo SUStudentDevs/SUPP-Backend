@@ -20,6 +20,8 @@ export default buildSchema(`
     type Mutation {
         "Create a user"
         newUser(username: String!, password: String!, name: String, surname: String, role: RoleInput!): User
+        "Create an enrollment"
+        newEnrollment(userId: ID!, ueId: ID!, year:Int): Enrollment
     }
 
     "A User of the app"
@@ -76,6 +78,13 @@ export default buildSchema(`
         number: ID
         size: Int
         students: [User]
+    },
+
+    "An enrollment"
+    type Enrollment {
+        ue: UE
+        student: User
+        year: Int
     }
 
     "Time of the day (hour and minute)"

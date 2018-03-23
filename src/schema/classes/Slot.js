@@ -4,7 +4,6 @@
  * @author Basile Pesin
  */
 
-import DB from '../../DB'
 import Group from './Group'
 import SlotType from './SlotType'
 
@@ -24,14 +23,8 @@ class Slot {
         this.room = data.room
     }
 
-    /**
-     * Gets the group for this slot
-     */
     group() { return DB.getGroup(this.ueId, this.group_number).then(data => new Group(data)) }
 
-    /**
-     * Gets the type of this slot
-     */
     type() { return SlotTypeDB.findOne({where: {id: this.slotTypeId}}).then(data => new SlotType(data)) }
 }
 

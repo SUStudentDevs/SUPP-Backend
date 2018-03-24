@@ -31,7 +31,7 @@ class User {
      * Role of the user
      * @return the role of the user
      */
-    role() { return RoleDB.findOne({where : {id: this.roleId}}).then(data => new Role(data)) }
+    role() { return RoleDB.findOne({where : {id: this.roleId}}).then(role => new Role(role)) }
 }
 
 export default User;

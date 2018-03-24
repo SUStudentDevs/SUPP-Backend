@@ -7,8 +7,8 @@ import { buildSchema } from 'graphql'
 
 export default buildSchema(`
     type Query {
-        "A single user by it's id"
-        user(id: ID!): User
+        "A single user by their username"
+        user(username: String!): User
         "All the roles"
         roles: [Role]
         "A single UE by it's id"
@@ -74,14 +74,16 @@ export default buildSchema(`
 
     "A group"
     type Group {
+        id: ID
         ue: UE
-        number: ID
+        number: Int
         size: Int
         students: [User]
     },
 
     "An enrollment"
     type Enrollment {
+        id: ID
         ue: UE
         student: User
         year: Int

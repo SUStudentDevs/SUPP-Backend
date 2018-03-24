@@ -15,6 +15,7 @@ import UEDB from '../../DB/UE'
  */
 class Enrollment {
     constructor(data) {
+        this.id = data.id
         this.ueId = data.ueId
         this.userId = data.userId
         this.year = data.year

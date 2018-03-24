@@ -13,6 +13,7 @@ import UEDB from '../../DB/UE'
  */
 class Group {
     constructor(data) {
+        this.id = data.id
         this.ueId = data.ueId
         this.number = data.number
         this.size = data.size

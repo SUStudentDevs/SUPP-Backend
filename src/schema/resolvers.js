@@ -18,9 +18,9 @@ import EnrollmentDB from '../DB/Enrollment'
 export default root = {
     // Query resolvers
     roles: () => RoleDB.findAll().then(roles => roles.map(r => new Role(r))),
-    user: (args) => UserDB.findById(args.id).then(user => new User(user)),
+    user: (args) => UserDB.findOne({where: {username: args.username}}).then(user => user ? new User(user) : null),
     current_user: (_, context) => UserDB.findOne({where: {username: context.user.username}}).then(user => new User(user)),
-    ue: (args) => UEDB.findById(args.id).then(data => new UE(data)),
+    ue: (args) => UEDB.findById(args.id).then(ue => ue ? new UE(ue) : null),
 
     // Mutation resolvers
     newUser: (args) => RoleDB.findOne({where: {name: args.role.name}}).then(r => UserDB.findOrCreate({
